@@ -1,0 +1,29 @@
+Virtual User Script started at : 2024-05-29 21:47:19
+TruClient Replay (build 0157) for LoadRunner Professional 2024.1.0, build 0264. OS: Windows 10, Browser: Chromium 120.0.6099.63, initialized on 2024/05/29 at 21:47:18 (1716994038.749s)
+Running Vuser...
+Starting iteration 1.
+t=00001857ms: Step 1: Navigate to "http://localhost:1080/webtours/" started    [MsgId: MMSG-205180]
+Ending Vuser...
+t=00013723ms: Step 1: Navigate to http://localhost:1080/webtours/ was stopped    [MsgId: MMSG-205180]
+t=00013751ms: Error -205177: TypeError: Cannot read properties of null (reading 'activeTabId')
+TypeError: Cannot read properties of null (reading 'activeTabId')
+    at Object.<anonymous> (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/DRRECommunication/DRREHeartbeatMgr.js:156:73)
+    at Object.dispatch (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/RuleEngine.js:137:33)
+    at window.TC_NS.Event (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/Event.js:11:36)
+    at Function.dispatch (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/Event.js:25:24)
+    at chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/model/ArgsContextMain.js:110:31
+    at Object.dispatch (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/RuleEngine.js:137:33)
+    at window.TC_NS.Event.dispatch (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/Event.js:40:36)
+    at new EventTracker (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/Event.js:80:27)
+    at Function.dispatchAndTrack (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//RRE/content/infra/Event.js:31:24)
+    at Object.<anonymous> (chrome-extension://opmdjnhpgoamlkjpphnnhohdcgnimbbj//Ext/ExtRunLogicAPI.js:47:37)
+While calling handlers in TC_NS.RuleEngine dispatch, event=[TC_NS.Event type="TC.isTabConnected" target="[object Object]"], handler=
+function (e) {
+        var tabId = e.tabId || TC_NS.BrowserMgr.activeBrowserTabManager.activeTabId;
+        if (tabId) {
+            e.isTabConnected = !!TC_NS.DRRECommunication._viewsMap[tabId];
+            e.isAlive = !!DRREHeartbeatMgr._tabHeartbeatTime[tabId];
+        }
+    }    [MsgId: MERR-205177]
+Vuser Terminated.
+t=00013793ms: Error -205177: Browser connection was unexpectedly closed. The browser process has exited.    [MsgId: MERR-205177]
